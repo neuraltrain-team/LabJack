@@ -28,10 +28,10 @@ yf = [float(i) for i in y]
 plt.plot(xf[1:1000],yf[1:1000])
 
 # 04. Compute the FFT
-from scipy.signal import blackman
+from scipy.signal import hamming
 N = len(xf) # How many items
 T = xf[1]-xf[0] # Sample interval
-w = blackman(N) # Window Function
+w = hamming(N) # Window Function
 ywf = fft(yf*w) # Windowed FFT
 
 xfreq = fftfreq(N,T)[:N//2] # Extract the Frequency
