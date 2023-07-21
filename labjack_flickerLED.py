@@ -20,8 +20,11 @@ d.getCalibrationData() # calibrate labjack
 
 for i in range(31):
     print(i)
-    d.getFeedback(u3.BitStateWrite(IONumber = 0, State = 1))
+    d.getFeedback(u3.BitStateWrite(IONumber = 0, State = 1),
+                  u3.BitStateWrite(IONumber = 1, State = 1))
     time.sleep(.005)
-    d.getFeedback(u3.BitStateWrite(IONumber = 0, State = 0))
-    time.sleep(.005)
+    d.getFeedback(u3.BitStateWrite(IONumber = 0, State = 0),
+                  u3.BitStateWrite(IONumber = 1, State = 0))
+    time.sleep(1)
+    
 
